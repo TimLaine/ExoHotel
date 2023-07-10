@@ -11,4 +11,29 @@ class Chambre{
         $this->_wifi = $wifi;
         $this->_dispo = $dispo;
     }
+
+    public function getNum(){
+        return $this->_num;
+    }
+    public function getPrix(){
+        return $this->_prix;
+    }
+    public function getWifi(){
+        return $this->_wifi;
+    }
+    public function getDispo(){
+        return $this->_dispo;
+    }
+    public function setNum($num){
+        $this->_num = $num;
+    }
+    public function setPrix($prix){
+        $this->_prix = $prix;
+    }
+    public function setWifi($wifi){
+        $this->_wifi = $wifi;
+    }
+    public function setDispo($dispo){
+        $this->_dispo = $dispo;
+    }
 }
