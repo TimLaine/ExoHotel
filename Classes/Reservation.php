@@ -18,10 +18,22 @@ class Reservation{
     public function getFin(){
         return $this->_fin->format('d-m-Y');
     }
+    public function getCLient(){
+        return $this->_client;
+    }
+    public function getChambre(){
+        return $this->_chambre;
+    }
     public function setDebut($debut){
         $this->_debut = new DateTime($debut);
     }
     public function setFin($fin){
         $this->_fin = new DateTime($fin);
+    }
+    public function setClient($client){
+        $this->_client = $client;
+    }
+    public function setChambre($chambre){
+        $this->_chambre = $chambre;
     }
 }
