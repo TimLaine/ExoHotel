@@ -2,10 +2,14 @@
 class Reservation{
     private DateTime $_debut;
     private DateTime $_fin;
+    private Client $_client;
+    private Chambre $_chambre;
 
-    public function __construct(string $debut, string $fin){
+    public function __construct(string $debut, string $fin, Client $client, Chambre $chambre){
         $this->_debut = new DateTime ($debut);
         $this->_fin = new DateTime ($fin);
+        $this->_client = $client;
+        $this->_chambre = $chambre;
     }
 
     public function getDebut(){
