@@ -44,6 +44,11 @@ class Chambre{
         return $result;
     }
     public function resaChambre(){
-        $this->_hotel->reservationChambre();
+        if($this->_dispo){
+            $this->_hotel->reservationChambre();
+            $this->_dispo = !$this->_dispo;
+        } else {
+            echo "Cette chambre a déjà été réservée.";
+        }
     }
 }

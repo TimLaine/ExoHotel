@@ -3,15 +3,19 @@
 class Hotel{
     private string $_nom;
     private string $_adresse;
-    private string $_cpVille;
+    private string $_cp;
+    private string $_ville;
     private int $_nbChambre;
+    private int $_nbChambreActuel;
     private array $_chambres;
 
-    public function __construct(string $nom, string $adresse, string $cpVille, int $nbChambre){
+    public function __construct(string $nom, string $adresse, string $cp, string $ville, int $nbChambre){
         $this->_nom = $nom;
         $this->_adresse = $adresse;
-        $this->_cpVille = $cpVille;
+        $this->_cp = $cp;
+        $this->_ville = $ville;
         $this->_nbChambre = $nbChambre;
+        $this->_nbChambreActuel = $nbChambre;
         $this->_chambres = [];
     }
 
@@ -58,10 +62,18 @@ class Hotel{
         return $result;
     }
     public function reservationChambre(){
-        if($this->_nbChambre > 0){
-            $this->_nbChambre = $this->_nbChambre - 1;
+        if($this->_nbChambreActuel > 0){
+            $this->_nbChambreActuel = $this->_nbChambreActuel - 1;
         } else {
             echo "Il n'y a plus de chambre libre dans l'hôtel.";
         }
+    }
+    public function getInfos(){
+        $result = "<h1>$this</h1>";
+        $result .= "$this->_adresse $this->_cp $this->_ville <br>";
+        $result .= "Nombre de chambres : $this->_nbChambre <br>";
+        $result .= "Nombre de chambres réservées : ". $this->_nbChambre - $this->_nbChambreActuel. "<br>";
+        $result .= "Nombre de chambres dispo : $this->_nbChambreActuel <br>";
+        return $result;
     }
 }
