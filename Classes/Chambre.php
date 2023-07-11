@@ -9,7 +9,7 @@ class Chambre{
         $this->_num = $num;
         $this->_prix = $prix;
         $this->_wifi = $wifi;
-        $this->_dispo = $dispo;
+        $this->_dispo = 1;
     }
 
     public function getNum(){

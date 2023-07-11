@@ -17,7 +17,7 @@ class Client{
         return $this->_prenom;
     }
     public function getBirth(){
-        return $this->_birth->format('d-m-Y');
+        return $this->_birth;
     }
     public function setNom($nom){
         $this->_nom = $nom;

@@ -6,7 +6,7 @@ class Hotel{
     private string $_cpVille;
     private int $_nbChambre;
 
-    public function __construct(string $nom, string $adresse, string $cpVille, int $nrChambre){
+    public function __construct(string $nom, string $adresse, string $cpVille, int $nbChambre){
         $this->_nom = $nom;
         $this->_adresse = $adresse;
         $this->_cpVille = $cpVille;
