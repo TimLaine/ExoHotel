@@ -5,9 +5,11 @@ class Chambre{
     private bool $_wifi;
     private bool $_dispo;
     private Hotel $_hotel;
+    private int $_lit;
 
-    public function __construct(int $num, float $prix, bool $wifi,$hotel){
+    public function __construct(int $num, int $lit, float $prix, bool $wifi,$hotel){
         $this->_num = $num;
+        $this->_lit = $lit;
         $this->_prix = $prix;
         $this->_wifi = $wifi;
         $this->_dispo = 1;
@@ -40,7 +42,7 @@ class Chambre{
         $this->_dispo = $dispo;
     }
     public function __toString(){
-        $result = "Chambre n°$this->_num de l'hôtel $this->_hotel.";
+        $result = "Chambre n°$this->_num";
         return $result;
     }
     public function resaChambre(){

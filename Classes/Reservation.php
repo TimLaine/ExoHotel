@@ -4,13 +4,16 @@ class Reservation{
     private DateTime $_fin;
     private Client $_client;
     private Chambre $_chambre;
+    private Hotel $_hotel;
 
-    public function __construct(string $debut, string $fin, Client $client, Chambre $chambre){
+    public function __construct(string $debut, string $fin, Client $client, Chambre $chambre, Hotel $hotel){
         $this->_debut = new DateTime ($debut);
         $this->_fin = new DateTime ($fin);
         $this->_client = $client;
         $this->_chambre = $chambre;
+        $this->_hotel = $hotel;
         $this->_chambre->resaChambre();
+        $this->_client->reservation($this);
     }
 
     public function getDebut(){
@@ -19,11 +22,14 @@ class Reservation{
     public function getFin(){
         return $this->_fin->format('d-m-Y');
     }
-    public function getCLient(){
+    public function getClient(){
         return $this->_client;
     }
     public function getChambre(){
         return $this->_chambre;
+    }
+    public function getHotel(){
+        return $this->_hotel;
     }
     public function setDebut($debut){
         $this->_debut = new DateTime($debut);
