@@ -43,4 +43,7 @@ class Chambre{
         $result = "Chambre n°$this->_num de l'hôtel $this->_hotel.";
         return $result;
     }
+    public function resaChambre(){
+        $this->_hotel->reservationChambre();
+    }
 }

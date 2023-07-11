@@ -44,7 +44,7 @@ class Hotel{
         return $result;
     }
     public function ajoutHotel(Chambre $chambre){
-        if(count($this->_chambres) < 29){
+        if(count($this->_chambres) < $this->_nbChambre){
             $this->_chambres [] = $chambre;
         } else {
             echo "Toutes les chambres de l'Hôtel ont été définies.";
@@ -56,5 +56,12 @@ class Hotel{
             $result .= $chambre."<br>";
         }
         return $result;
+    }
+    public function reservationChambre(){
+        if($this->_nbChambre > 0){
+            $this->_nbChambre = $this->_nbChambre - 1;
+        } else {
+            echo "Il n'y a plus de chambre libre dans l'hôtel.";
+        }
     }
 }
