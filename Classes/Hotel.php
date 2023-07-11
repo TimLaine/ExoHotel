@@ -25,11 +25,17 @@ class Hotel{
     public function getAdresse(){
         return $this->_adresse;
     }
-    public function getCpVille(){
-        return $this->_cpVille;
+    public function getCp(){
+        return $this->_cp;
+    }
+    public function getVille(){
+        return $this->_ville;
     }
     public function getNbChambre(){
         return $this->_nbChambre;
+    }
+    public function getNbChambreActuel(){
+        return $this->_nbChambreActuel;
     }
     public function setNom($nom){
         $this->_nom = $nom;
@@ -37,8 +43,11 @@ class Hotel{
     public function setAdresse($adresse){
         $this->_adresse = $adresse;
     }
-    public function setCpVille($cpVille){
-        $this->_cpVille = $cpVille;
+    public function setCp($cp){
+        $this->_cpVille = $cp;
+    }
+    public function setVille($ville){
+        $this->_cpVille = $ville;
     }
     public function setNbChambre($nbChambre){
         $this->_nbChambre = $nbChambre;
@@ -75,5 +84,9 @@ class Hotel{
         $result .= "Nombre de chambres réservées : ". $this->_nbChambre - $this->_nbChambreActuel. "<br>";
         $result .= "Nombre de chambres dispo : $this->_nbChambreActuel <br>";
         return $result;
+    }
+    public function getInfosResa(){
+        $result = "Réservations de l'hôtel $this";
+        $result .= "";
     }
 }
