@@ -5,11 +5,11 @@ class Chambre{
     private bool $_wifi;
     private bool $_dispo;
     private Hotel $_hotel;
-    private int $_lit;
+    private int $_nbLits;
 
-    public function __construct(int $num, int $lit, float $prix, bool $wifi,$hotel){
+    public function __construct(int $num, int $nbLits, float $prix, bool $wifi,$hotel){
         $this->_num = $num;
-        $this->_lit = $lit;
+        $this->_nbLits = $nbLits;
         $this->_prix = $prix;
         $this->_wifi = $wifi;
         $this->_dispo = 1;
@@ -32,8 +32,8 @@ class Chambre{
     public function getHotel(){
         return $this->_hotel;
     }
-    public function getLit(){
-        return $this->_lit;
+    public function getNbLits(){
+        return $this->_nbLits;
     }
     public function setNum($num){
         $this->_num = $num;

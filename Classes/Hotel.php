@@ -5,8 +5,6 @@ class Hotel{
     private string $_adresse;
     private string $_cp;
     private string $_ville;
-    private int $_nbChambre;
-    private int $_nbChambreActuel;
     private array $_chambres;
 
     public function __construct(string $nom, string $adresse, string $cp, string $ville, int $nbChambre){
@@ -14,8 +12,6 @@ class Hotel{
         $this->_adresse = $adresse;
         $this->_cp = $cp;
         $this->_ville = $ville;
-        $this->_nbChambre = $nbChambre;
-        $this->_nbChambreActuel = $nbChambre;
         $this->_chambres = [];
     }
 
@@ -32,7 +28,7 @@ class Hotel{
         return $this->_ville;
     }
     public function getNbChambre(){
-        return $this->_nbChambre;
+        return count($this->_chambres)+1;
     }
     public function getNbChambreActuel(){
         return $this->_nbChambreActuel;
