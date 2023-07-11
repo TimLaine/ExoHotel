@@ -29,6 +29,12 @@ class Chambre{
     public function getDispo(){
         return $this->_dispo;
     }
+    public function getHotel(){
+        return $this->_hotel;
+    }
+    public function getLit(){
+        return $this->_lit;
+    }
     public function setNum($num){
         $this->_num = $num;
     }

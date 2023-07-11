@@ -37,11 +37,27 @@ class Client{
     public function reservation($resa){
         $this->_reservations [] = $resa;
     }
-    public function getInfosResa(){
-        $result = "<h1>Réservation de $this : </h1>";
+    public function totalPrix(){
+        $totalprix = 0;
         foreach($this->_reservations as $reservation){
-            $result .= "<b>".$reservation->getHotel()."</b> / ".$reservation->getChambre()." du ".$reservation->getDebut(). " au ". $reservation->getFin(). "<br>";
+            $totalprix = $totalprix + $reservation->getChambre()->getPrix();
         }
+        return $totalprix;
+    }
+    public function getInfosResa(){
+        $totalprix = 0;
+        $result = "<h1>Réservations de $this : </h1>";
+        $result .= count($this->_reservations). " RESERVATIONS <br>";
+        foreach($this->_reservations as $reservation){
+            $result .= "<b>".$reservation->getChambre()->getHotel()."</b> / Chambre : ".$reservation->getChambre()->getNum()."(".$reservation->getChambre()->getLit()." lits - ".$reservation->getChambre()->getPrix(). " €"; 
+            if($reservation->getChambre()->getWifi()){
+                $result .= " Wifi : oui)";
+            } else {
+                $result .= " Wifi : non)";
+            }
+            $result .= " du ".$reservation->getDebut(). " au ". $reservation->getFin(). "<br>";
+        }
+        $result .= "Total : ".$this->totalPrix()." €";
         return $result;
     }
 }
