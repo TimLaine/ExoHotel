@@ -53,8 +53,7 @@ class Chambre{
     }
     public function resaChambre(){
         if($this->_dispo){
-            $this->_hotel->reservationChambre();
-            $this->_dispo = !$this->_dispo;
+            $this->_dispo = 0;
         } else {
             echo "Cette chambre a déjà été réservée.";
         }
