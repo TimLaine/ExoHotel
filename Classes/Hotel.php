@@ -47,10 +47,30 @@ class Hotel{
         return $result;
     }
     public function infoChambres(){
-        $result = "";
+        $result = "<table>
+                        <tr>
+                            <th>CHAMBRE</th>
+                            <th>PRIX</th>
+                            <th>WIFI</th>
+                            <th>ETAT</th>
+                        </tr>";
         foreach($this->_chambres as $chambre){
-            $result .= $chambre."<br>";
+            $result .= "<tr>
+                            <td>$chambre</td>
+                            <td>".$chambre->getPrix()."</td>";
+            if($chambre->getWifi()){
+                $result .= "<td>Oui</td>";
+            } else {
+                $result .= "<td>Non</td>";
+            }
+            if($chambre->getDispo()){
+                $result .= "<td>DISPONIBLE</td>";
+            } else {
+                $result .= "<td>RESERVEE</td>";
+            }
+            $result .= "</tr>";
         }
+        $result .= "</table>";
         return $result;
     }
     public function ajoutHotel($chambre){
