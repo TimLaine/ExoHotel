@@ -47,7 +47,7 @@ class Client{
     public function showInfosResa(){
         $totalprix = 0;
         $result = "<h1>Réservations de $this : </h1>";
-        $result .= count($this->_reservations). " RESERVATIONS <br>";
+        $result .= "<p class='reservation'>".count($this->_reservations). " RESERVATIONS </p><br>";
         foreach($this->_reservations as $reservation){
             $result .= "<b>".$reservation->getChambre()->getHotel()."</b> / Chambre : ".$reservation->getChambre()->getNum()." (".$reservation->getChambre()->getNbLits()." lits - ".$reservation->getChambre()->getPrix(). " €";
             if($reservation->getChambre()->getWifi()){

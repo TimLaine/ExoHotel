@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    font-family: Poppins;
+}
+h1{
+    font-weight: 400;
+    font-size: x-large;
+}
+h2{
+    font-weight: 400;
+    font-size: larger;
+}
+.reservation{
+    display: inline;
+    background-color: limegreen;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+}
+.dispo{
+    display: flex;
+    background-color: limegreen;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+}
+.reservee{
+    display: block;
+    background-color: red;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+}
+/* table, th, td{
+    border: solid black 1px;
+} */
+table{
+    display: flex;
+    width: 100%;
+}
+tbody{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+tr{
+    width: 100%;
+    display: flex;
+    border-bottom: solid darkgray 2px;
+    align-items: center;
+}
+th{
+    display: flex;
+    font-weight: 300;
+    color: darkgray;
+    margin: 5px;
+    width: 100%;
+    text-align: center;
+}
+.chambre{
+box-sizing: border-box;
+}
+td{
+    display: flex;
+    margin: 5px;
+    width: 100%;
+}

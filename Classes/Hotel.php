@@ -47,16 +47,17 @@ class Hotel{
         return $result;
     }
     public function infoChambres(){
-        $result = "<table>
+        $result = "<h2>Statuts des chambres de <b>$this</b></h2><br>";
+        $result .= "<table>
                         <tr>
-                            <th>CHAMBRE</th>
+                            <th class='chambre'>CHAMBRE</th>
                             <th>PRIX</th>
                             <th>WIFI</th>
                             <th>ETAT</th>
                         </tr>";
         foreach($this->_chambres as $chambre){
             $result .= "<tr>
-                            <td>$chambre</td>
+                            <td class='chambre'>$chambre</td>
                             <td>".$chambre->getPrix()."</td>";
             if($chambre->getWifi()){
                 $result .= "<td>Oui</td>";
@@ -64,9 +65,9 @@ class Hotel{
                 $result .= "<td>Non</td>";
             }
             if($chambre->getDispo()){
-                $result .= "<td>DISPONIBLE</td>";
+                $result .= "<td><p class='dispo'>DISPONIBLE</p></td>";
             } else {
-                $result .= "<td>RESERVEE</td>";
+                $result .= "<td><p class='reservee'>RESERVEE</p></td>";
             }
             $result .= "</tr>";
         }
@@ -102,6 +103,7 @@ class Hotel{
     }
     public function showInfosResa(){
         $result = "<h2>Réservations de l'hôtel $this : </h2>";
+        $result .= "<p class='reservation'>".$this->nbResaChambres()." RESERVATIONS</p><br>";
         foreach($this->_chambres as $chambre){
             if(!$chambre->getDispo()){
                 $result .= $chambre->getReservation()->getClient()." - ".$chambre." - du ".$chambre->getReservation()->getDebut()." au ".$chambre->getReservation()->getFin()."<br>";
