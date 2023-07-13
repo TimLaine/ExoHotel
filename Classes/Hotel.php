@@ -72,7 +72,7 @@ class Hotel{
         $result = $this->nbChambres() - $this->nbResaChambres();
         return $result;
     }
-    public function getInfos(){
+    public function showInfos(){
         $result = "<h1>$this</h1>";
         $result .= "$this->_adresse $this->_cp $this->_ville <br>";
         $result .= "Nombre de chambres : ".$this->nbChambres()." <br>";
@@ -80,8 +80,13 @@ class Hotel{
         $result .= "Nombre de chambres dispo : ".$this->chambresDispo()." <br>";
         return $result;
     }
-    public function getInfosResa(){
-        $result = "Réservations de l'hôtel $this";
-        $result .= "";
+    public function showInfosResa(){
+        $result = "<h2>Réservations de l'hôtel $this : </h2>";
+        foreach($this->_chambres as $chambre){
+            if(!$chambre->getDispo()){
+                $result .= $chambre->getReservation()->getClient()." - ".$chambre." - du ".$chambre->getReservation()->getDebut()." au ".$chambre->getReservation()->getFin()."<br>";
+            }
+        }
+        return $result;
     }
 }

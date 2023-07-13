@@ -10,7 +10,7 @@ class Reservation{
         $this->_fin = new DateTime ($fin);
         $this->_client = $client;
         $this->_chambre = $chambre;
-        $this->_chambre->resaChambre();
+        $this->_chambre->resaChambre($this);
         $this->_client->reservation($this);
     }
 

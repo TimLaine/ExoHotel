@@ -44,7 +44,7 @@ class Client{
         }
         return $totalprix;
     }
-    public function getInfosResa(){
+    public function showInfosResa(){
         $totalprix = 0;
         $result = "<h1>Réservations de $this : </h1>";
         $result .= count($this->_reservations). " RESERVATIONS <br>";

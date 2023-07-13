@@ -6,6 +6,7 @@ class Chambre{
     private bool $_dispo;
     private Hotel $_hotel;
     private int $_nbLits;
+    private Reservation $_reservation;
 
     public function __construct(int $num, int $nbLits, float $prix, bool $wifi,$hotel){
         $this->_num = $num;
@@ -35,6 +36,9 @@ class Chambre{
     public function getNbLits(){
         return $this->_nbLits;
     }
+    public function getReservation(){
+        return $this->_reservation;
+    }
     public function setNum($num){
         $this->_num = $num;
     }
@@ -51,9 +55,10 @@ class Chambre{
         $result = "Chambre n°$this->_num";
         return $result;
     }
-    public function resaChambre(){
+    public function resaChambre($reservation){
         if($this->_dispo){
             $this->_dispo = 0;
+            $this->_reservation = $reservation;
         } else {
             echo "Cette chambre a déjà été réservée.";
         }
