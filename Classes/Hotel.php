@@ -27,9 +27,6 @@ class Hotel{
     public function getVille(){
         return $this->_ville;
     }
-    public function getNbChambre(){
-        return count($this->_chambres);
-    }
     public function getNbChambreActuel(){
         return $this->getNbChambre();
     }
@@ -59,28 +56,28 @@ class Hotel{
     public function ajoutHotel($chambre){
         $this->_chambres [] = $chambre;
     }
-    public function nbResaChambre(){
+    public function nbChambres(){
+        return count($this->_chambres);
+    }
+    public function nbResaChambres(){
         $result = 0;
         foreach($this->_chambres as $chambre){
-            if($chambre->getDispo() == 0){
-                $result = $result +1;
+            if(!$chambre->getDispo()){
+                $result += 1;
             }
-        return $result;
         }
+        return $result;
     }
-    // public function reservationChambre(){
-    //     if($this->_nbChambreActuel > 0){
-    //         $this->_nbChambreActuel = $this->_nbChambreActuel - 1;
-    //     } else {
-    //         echo "Il n'y a plus de chambre libre dans l'hôtel.";
-    //     }
-    // }
+    public function chambresDispo(){
+        $result = $this->nbChambres() - $this->nbResaChambres();
+        return $result;
+    }
     public function getInfos(){
         $result = "<h1>$this</h1>";
         $result .= "$this->_adresse $this->_cp $this->_ville <br>";
-        $result .= "Nombre de chambres : ".$this->getNbChambre()." <br>";
-        $result .= "Nombre de chambres réservées : ". $this->nbResaChambre(). "<br>";
-        $result .= "Nombre de chambres dispo : ".$this->getNbChambre()." <br>";
+        $result .= "Nombre de chambres : ".$this->nbChambres()." <br>";
+        $result .= "Nombre de chambres réservées : ". $this->nbResaChambres(). "<br>";
+        $result .= "Nombre de chambres dispo : ".$this->chambresDispo()." <br>";
         return $result;
     }
     public function getInfosResa(){
